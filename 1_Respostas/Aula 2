@@ -1,0 +1,23 @@
+Questões aula 2
+1 – Barramento de dados servem para fazer a comunicação entre diferentes subsistemas, já o barramento de endereço serve para indicar ao controlador qual endereço da memoria deve-se ler/escrever o dado.
+
+2 – A memoria RAM armazena informações temporariamente sendo que quando o sistema é reiniciado ela deleta as informações contidas. Já a memória ROM armazena informações a longo prazo, permanecendo nela mesmo com a reinicialização do sistema.
+
+3 –
+A) RAM pois o valor da variável i não será necessário após a reinicialização do sistema.
+B) Na memória ROM pois os dados referentes ao programa podem ser utilizados outras vezes, mesmo se houver uma reinicialização do sistema.
+
+4 – A vantagem da arquitetura Havard é que esta possui memorias independentes de modo que é possível se realizar duas instruções ao mesmo tempo deixando assim o processo mais rápido. Na arquitetura de Von Neumann é executada uma instrução por vez, gatando menos espaço no hardware. 
+
+5 –
+A)    0xCD – 0x0200
+          0xAB - 0x0201
+          0x51 - 0x0202
+          0x80 - 0x0203
+B)    0x80 – 0x0200
+      0x51 - 0x0201
+      0xAB - 0x0202
+      0xCD - 0x0203	
+      
+6 – Ele soma a variável utilizando mais de um ciclo de clock, neste caso, como o processador do MSP é de 16 bits para somar um numero de 32 bits ele precisa de dois ciclos para realizar a instrução.
+
