@@ -1,0 +1,26 @@
+1.	O que são sistemas embarcados?
+Sistemas embarcados são sistemas computacionais independentes capazes de realizar, diferentemente dos desktops, somente as funções para as quais foram programados.
+
+2.	O que são sistemas microprocessados?
+Sistemas microprocessados São sistemas fechados e dedicados para um proposito definido.
+
+
+3.	Apresente aplicações de sistemas embarcados: (a) para a indústria automotiva; (b) para eletrodomésticos; (c) para automação industrial.
+a) Na indústria automotiva, o uso de sistemas embarcados é fundamental, tanto para o conforto e navegação, quando para a segurança dos usuários. Dentre os diversos dispositivos automotivos, é possível destacar:
+•	Redes de comunicação embarcada como CAN e LIN;
+•	Sistemas de GPS e navegação;
+•	Controle de motor e injeção eletrônica;
+•	Alarmes;
+•	Controle de transmissão e carroceria;
+b) No dia a dia, os microcontroladores são bastante utilizados em eletrodomésticos, sendo responsáveis pela automação em, por exemplo, micro-ondas, Televisores, geladeiras, DVD’s e Vídeo Cassetes.
+c) Por fim, na automação industrial, ele está presente em diversas indúsctrias como montadoras de carros, sistemas de controle de temperatura, etc.
+
+4.	Cite arquiteturas possíveis e as diferenças entre elas.
+As duas arquiteturas possíveis são a von Neumann e a Harvard. A primeira é conhecida por utilizar o mesmo espaço de memória para armazenar seus programas e os dados. Já a Harvard utiliza duas memórias diferentes e independentes em termos de barramento e ligação ao processador, tornando o trabalho do microprocessador mais rápido.
+
+5.	Por que usamos o MSP430 na disciplina, ao invés de outro microcontrolador?
+O microcontrolador MSP430 possui algumas vantagens perante os demais para a utilização na disciplina. São elas:
+•	Baixíssimo consumo elétrico (230 uA a 1MHz/2.2 V), sendo ideal para dispositivos alimentados por bateria;
+•	Arquitetura RISC de 16 bits podendo trabalhar a uma frequência interna de até 16 MHz;
+•	Registradores flexíveis ao uso;
+•	Baixo custo.
