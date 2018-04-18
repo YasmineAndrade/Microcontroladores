@@ -1,0 +1,170 @@
+Questão 1 - A) Setar o bit menos significativo
+a |= 0x01;
+B) Setar os dois menos dsignificativos
+a |= 0x03;
+C) Somente zerar o terceiro menos significativo
+a &= ~0x04;
+D) Somente zerar o terceiro e quarto menos significativos
+a &= ~0x12;
+E) Iverter o bit mais significativo
+a ^= 0x128;
+F) Inverter o nibble mais significativo e setar o menos significativo
+a ^= 0x240;
+a |= 0x30;
+
+Questão 2 – Piscar os leds initerruptamente
+
+#include <msp430g2553.h>
+#define LED1 BIT0
+#define LED2 BIT6
+#define LEDS (LED1|LED2)
+#define BTN  BIT3
+
+void atraso(volatile unsigned int i)
+{
+  while((i--)>0);
+}
+
+int main()
+{
+  WDTCTL = WDTPW | WDTHOLD;
+  P1OUT |= LEDS;
+  P1DIR |= LEDS;
+
+  while (1){
+    P1OUT ^= LEDS;
+    atraso (0xffff);
+  }
+
+  return 0;
+}
+
+Questão 3 – Piscar os leds duas vezes quando apertar o botão
+
+#include <msp430g2553.h>
+#define LED1 BIT0
+#define LED2 BIT6
+#define LEDS (LED1|LED2)
+#define BTN  BIT3
+
+void atraso(volatile unsigned int i)
+{
+  while((i--)>0);
+}
+
+int main()
+{
+  WDTCTL = WDTPW | WDTHOLD;
+  P1OUT |= LEDS;
+  P1DIR |= LEDS;
+  P1DIR &= ~BTN;
+  P1REN |= BTN;
+
+  while (1){
+    
+    if ((BTN&P1IN)==0){
+      
+       P1OUT = LEDS + BTN;
+       atraso (0xffff);
+       P1OUT = ~(LEDS + BTN);
+       atraso (0xffff);
+       P1OUT = LEDS + BTN;
+       atraso (0xffff);
+    }
+    else{
+      P1OUT &= ~LEDS;
+    }
+}
+  return 0;
+}
+
+Questão 4 – 
+void pisca2 (){
+       P1OUT = LEDS + BTN;
+       atraso (0xffff);
+       P1OUT = ~(LEDS + BTN);
+       atraso (0xffff);
+       P1OUT = LEDS + BTN;
+       atraso (0xffff);
+       P1OUT &= ~LEDS;
+       atraso (0xffff);
+}
+
+Questão 5 – 
+#include <msp430g2553.h>
+#define LED1 BIT0
+#define LED2 BIT6
+#define LEDS (LED1|LED2)
+#define BTN  BIT3
+
+void atraso(volatile unsigned int i)
+{
+  while((i--)>0);
+}
+
+void pisca2 (){
+       P1OUT = LEDS + BTN;
+       atraso (0xffff);
+       P1OUT = ~(LEDS + BTN);
+       atraso (0xffff);
+       P1OUT = LEDS + BTN;
+       atraso (0xffff);
+       P1OUT &= ~LEDS;
+       atraso (0xffff);
+}
+
+int main()
+{
+  WDTCTL = WDTPW | WDTHOLD;
+  P1OUT |= LEDS;
+  P1DIR |= LEDS;
+  P1DIR &= ~BTN;
+  P1REN |= BTN;
+
+  while (1){
+    
+      pisca2();
+
+}
+  return 0;
+}
+Questão 6 - #include <msp430g2553.h>
+#define LED1 BIT0
+#define LED2 BIT6
+#define LEDS (LED1|LED2)
+#define BTN  BIT3
+
+void atraso(volatile unsigned int i)
+{
+  while((i--)>0);
+}
+
+void pisca2 (){
+       P1OUT = LEDS + BTN;
+       atraso (0xffff);
+       P1OUT = ~(LEDS + BTN);
+       atraso (0xffff);
+       P1OUT = LEDS + BTN;
+       atraso (0xffff);
+}
+
+int main()
+{
+  WDTCTL = WDTPW | WDTHOLD;
+  P1OUT |= LEDS;
+  P1DIR |= LEDS;
+  P1DIR &= ~BTN;
+  P1REN |= BTN;
+
+  while (1){
+    
+    if ((BTN&P1IN)==0){
+      pisca2();
+    }
+    else{
+      P1OUT &= ~LEDS;
+    }
+}
+  return 0;
+}
+
